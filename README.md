@@ -1,3 +1,22 @@
+## capabilities (indigo) - 0.1.1-0
+
+The packages in the `capabilities` repository were released into the `indigo` distro by running `/usr/local/bin/bloom-release -r indigo -t indigo capabilities` on `Sat, 03 May 2014 04:10:31 -0000`
+
+The `capabilities` package was released.
+
+Version of package(s) in repository `capabilities`:
+- rosdistro version: `0.1.0-0`
+- old version: `0.1.0-0`
+- new version: `0.1.1-0`
+
+Versions of tools used:
+- bloom version: `0.5.5`
+- catkin_pkg version: `0.2.2`
+- rosdep version: `0.10.27`
+- rosdistro version: `0.3.5`
+- vcstools version: `0.1.33`
+
+
 ## capabilities (hydro) - 0.1.1-0
 
 The packages in the `capabilities` repository were released into the `hydro` distro by running `/usr/local/bin/bloom-release -r hydro -t hydro capabilities` on `Sat, 03 May 2014 04:09:01 -0000`
