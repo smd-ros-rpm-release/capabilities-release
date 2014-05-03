@@ -1,0 +1,12 @@
+Source: ros-indigo-capabilities
+Section: misc
+Priority: extra
+Maintainer: William Woodall <william@osrfoundation.org>
+Build-Depends: debhelper (>= 7.0.50~), pep8, python-coverage, python-mock, ros-indigo-catkin, ros-indigo-geometry-msgs, ros-indigo-message-generation, ros-indigo-roslaunch, ros-indigo-rospy, ros-indigo-rosservice, ros-indigo-rostest, ros-indigo-std-msgs, ros-indigo-std-srvs
+Homepage: http://wiki.ros.org/capabilities
+Standards-Version: 3.9.2
+
+Package: ros-indigo-capabilities
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python-yaml, ros-indigo-bondpy, ros-indigo-message-runtime, ros-indigo-nodelet, ros-indigo-roslaunch, ros-indigo-rospy, ros-indigo-std-msgs, ros-indigo-std-srvs
+Description: Package which implements capabilities, including code to parse capability interface specs, to parse capability provider specs, and implement the capability server.

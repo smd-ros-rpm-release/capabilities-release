@@ -1,0 +1,17 @@
+ros-indigo-capabilities (0.1.1-0saucy) saucy; urgency=high
+
+  * Add entry in setup.py to install package data
+  * Fixed up testing
+  * Updates link to API doc
+  * Contributors: Marcus Liebhardt, William Woodall
+
+ -- William Woodall <william@osrfoundation.org>  Fri, 02 May 2014 07:00:00 -0000
+
+ros-indigo-capabilities (0.1.0-0saucy) saucy; urgency=high
+
+  * First release
+  * Contributors: Esteve Fernandez, Marcus Liebhardt, Tully Foote, William Woodall
+
+ -- William Woodall <william@osrfoundation.org>  Tue, 15 Apr 2014 07:00:00 -0000
+
+
