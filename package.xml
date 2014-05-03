@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>capabilities</name>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
   <description>
     Package which implements capabilities, including code to parse capability interface specs, to parse capability provider specs, and implement the capability server.
   </description>
@@ -34,6 +34,9 @@
   <run_depend>std_srvs</run_depend>
 
   <test_depend>geometry_msgs</test_depend>
+  <test_depend>python-coverage</test_depend>
+  <test_depend>python-mock</test_depend>
+  <test_depend>python-pep8</test_depend>
   <test_depend>rosservice</test_depend>
 
   <export>
