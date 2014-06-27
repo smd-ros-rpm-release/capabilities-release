@@ -1,0 +1,32 @@
+ros-groovy-capabilities (0.2.0-0precise) precise; urgency=high
+
+  * downgrade one of the exceptions to a warning
+  * fixup tests to reflect changes to client API
+  * Increase queue_size to 1000 for publishers
+  * Add queue_size arg for all publishers
+  * change exception behavior for use/free_capability in client API
+  * A rosdistro agnostic documentation reference
+  * conditionally try to stop reverse deps, since other reverse deps may have already stopped it
+  * make stopping the launch manager more robust to errors
+  * adds support of namespaces for capability nodelets
+  * Contributors: Jon Binney, Marcus Liebhardt, Nikolaus Demmel, William Woodall, kentsommer
+
+ -- William Woodall <william@osrfoundation.org>  Fri, 27 Jun 2014 07:00:00 -0000
+
+ros-groovy-capabilities (0.1.1-0precise) precise; urgency=high
+
+  * Add entry in setup.py to install package data
+  * Fixed up testing
+  * Updates link to API doc
+  * Contributors: Marcus Liebhardt, William Woodall
+
+ -- William Woodall <william@osrfoundation.org>  Fri, 02 May 2014 07:00:00 -0000
+
+ros-groovy-capabilities (0.1.0-0precise) precise; urgency=high
+
+  * First release
+  * Contributors: Esteve Fernandez, Marcus Liebhardt, Tully Foote, William Woodall
+
+ -- William Woodall <william@osrfoundation.org>  Tue, 15 Apr 2014 07:00:00 -0000
+
+
