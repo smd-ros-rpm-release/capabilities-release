@@ -91,13 +91,16 @@ class LaunchManager(object):
         with self.__running_launch_files_lock:
             self.__running_launch_files = {}
         self.__outputs = [sys.stdout]
-        self.__event_publisher = rospy.Publisher("~events", CapabilityEvent)
+        self.__event_publisher = rospy.Publisher("~events", CapabilityEvent, queue_size=1000)
         self.__event_subscriber = rospy.Subscriber(
             "~events", CapabilityEvent, self.handle_capability_events)
         self.stopping = False
         self.__quiet = quiet
         self.__screen = screen
-        self.__nodelet_manager_name = nodelet_manager_name or (rospy.get_name().split('/')[-1] + '_nodelet_manager')
+        name = rospy.get_namespace()
+        name += "" if name.startswith('/') else "/"
+        name += nodelet_manager_name if nodelet_manager_name else rospy.get_name().split('/')[-1] + '_nodelet_manager'
+        self.__nodelet_manager_name = name
         self.__start_nodelet_manager()
 
     @property
@@ -114,8 +117,12 @@ class LaunchManager(object):
             if self.stopping:
                 return  # pragma: no cover
             self.stopping = True
-            for pid in self.__running_launch_files:
-                self.__stop_by_pid(pid)  # pragma: no cover
+            for pid in self.__running_launch_files:  # pragma: no cover
+                try:
+                    self.__stop_by_pid(pid)
+                except RuntimeError as exc:
+                    if "launch file with PID" not in "{0}".format(exc):
+                        raise  # Re-raise
 
     def __stop_by_pid(self, pid):
         if pid not in self.__running_launch_files:
@@ -169,7 +176,7 @@ class LaunchManager(object):
             launch_file = os.path.join(provider_path, provider.launch_file)
         self.run_launch_file(launch_file, provider)
 
-    def run_launch_file(self, launch_file, provider):
+    def run_launch_file(self, launch_file, provider, manager=False):
         with self.__running_launch_files_lock:
             if launch_file is not None and launch_file in [x[3] for x in self.__running_launch_files.values()]:
                 raise RuntimeError("Launch file at '{0}' is already running."
@@ -181,7 +188,10 @@ class LaunchManager(object):
                     cmd = [self.__roslaunch_exec, '--screen', launch_file]
                 else:
                     cmd = [self.__roslaunch_exec, launch_file]
-                cmd.append("capability_server_nodelet_manager_name:=" + self.__nodelet_manager_name)
+                if manager:
+                    cmd.append("capability_server_nodelet_manager_name:=" + self.__nodelet_manager_name.split('/')[-1])
+                else:
+                    cmd.append("capability_server_nodelet_manager_name:=" + self.__nodelet_manager_name)
             if self.__quiet:
                 env = copy.deepcopy(os.environ)
                 env['PYTHONUNBUFFERED'] = 'x'
@@ -207,7 +217,7 @@ class LaunchManager(object):
             name = rospy.get_name().lstrip('/')
         provider = MockProvider()
         launch_file = _nodelet_manager_launch_file
-        self.run_launch_file(launch_file, provider)
+        self.run_launch_file(launch_file, provider, manager=True)
 
     def __start_communication_thread(self, proc):
         return threading.Thread(target=self.__monitor_process, args=(proc,))
