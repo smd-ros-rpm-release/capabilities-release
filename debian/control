@@ -1,0 +1,12 @@
+Source: ros-groovy-capabilities
+Section: misc
+Priority: extra
+Maintainer: William Woodall <william@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), pep8, python-coverage, python-mock, ros-groovy-catkin, ros-groovy-geometry-msgs, ros-groovy-message-generation, ros-groovy-roslaunch, ros-groovy-rospy, ros-groovy-rosservice, ros-groovy-rostest, ros-groovy-std-msgs, ros-groovy-std-srvs
+Homepage: http://wiki.ros.org/capabilities
+Standards-Version: 3.9.2
+
+Package: ros-groovy-capabilities
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python-yaml, ros-groovy-bondpy, ros-groovy-message-runtime, ros-groovy-nodelet, ros-groovy-roslaunch, ros-groovy-rospy, ros-groovy-std-msgs, ros-groovy-std-srvs
+Description: Package which implements capabilities, including code to parse capability interface specs, to parse capability provider specs, and implement the capability server.
