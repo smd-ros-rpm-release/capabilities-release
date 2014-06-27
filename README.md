@@ -1,3 +1,24 @@
+## capabilities (hydro) - 0.2.0-0
+
+The packages in the `capabilities` repository were released into the `hydro` distro by running `/usr/local/bin/bloom-release -r hydro -t hydro capabilities` on `Fri, 27 Jun 2014 22:55:03 -0000`
+
+The `capabilities` package was released.
+
+Version of package(s) in repository `capabilities`:
+- upstream repository: https://github.com/osrf/capabilities.git
+- release repository: https://github.com/ros-gbp/capabilities-release.git
+- rosdistro version: `0.1.1-0`
+- old version: `0.1.1-0`
+- new version: `0.2.0-0`
+
+Versions of tools used:
+- bloom version: `0.5.11-dev`
+- catkin_pkg version: `0.2.2`
+- rosdep version: `0.10.27`
+- rosdistro version: `0.3.5`
+- vcstools version: `0.1.35`
+
+
 ## capabilities (groovy) - 0.2.0-0
 
 The packages in the `capabilities` repository were released into the `groovy` distro by running `/usr/local/bin/bloom-release -r groovy -t groovy capabilities` on `Fri, 27 Jun 2014 22:51:57 -0000`
